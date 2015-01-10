@@ -1,31 +1,31 @@
 package com.rms.entity;
 
 public class User {
-	
+
 	private int id;
-	
+
 	private String userId;
-	
+
 	private String password;
-	
+
 	private String name;
-	
+
 	private String type;
-	
-	private String locationId;
-	
-	private String parent;
-	
-	private String phoneNo;
-	
+
+	private int locationId;
+
+	private int parent;
+
+	private long phoneNo;
+
 	private char active;
-	
+
 	public User() {
 		super();
 	}
 
-	public User(int id, String userId, String password, String name, String type, String locationId, String parent,
-			String phoneNo, char active) {
+	public User(int id, String userId, String password, String name, String type, int locationId, int parent,
+			long phoneNo, char active) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -78,27 +78,27 @@ public class User {
 		this.type = type;
 	}
 
-	public String getLocationId() {
+	public int getLocationId() {
 		return locationId;
 	}
 
-	public void setLocationId(String locationId) {
+	public void setLocationId(int locationId) {
 		this.locationId = locationId;
 	}
 
-	public String getParent() {
+	public int getParent() {
 		return parent;
 	}
 
-	public void setParent(String parent) {
+	public void setParent(int parent) {
 		this.parent = parent;
 	}
 
-	public String getPhoneNo() {
+	public long getPhoneNo() {
 		return phoneNo;
 	}
 
-	public void setPhoneNo(String phoneNo) {
+	public void setPhoneNo(long phoneNo) {
 		this.phoneNo = phoneNo;
 	}
 
@@ -108,6 +108,13 @@ public class User {
 
 	public void setActive(char active) {
 		this.active = active;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", userId=" + userId + ", password=" + password + ", name=" + name + ", type=" + type
+				+ ", locationId=" + locationId + ", parent=" + parent + ", phoneNo=" + phoneNo + ", active=" + active
+				+ "]";
 	}
 
 }

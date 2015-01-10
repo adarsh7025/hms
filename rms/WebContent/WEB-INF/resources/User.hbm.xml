@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="com.rms.entity.User" table="user" >
+	
+		<id name="id" column="id" type="int">
+		<generator class="increment"></generator></id>
+		
+		<property name="userId" column="user_id" type="string"></property>
+		<property name="password" column="password" type="string"></property>
+		<property name="name" column="name" type="string"></property>
+		<property name="type" column="type" type="string"></property>
+		<property name="locationId" column="location_id" type="int"></property>
+		<property name="parent" column="parent" type="int"></property>
+		<property name="phoneNo" column="phone_no" type="long"></property>
+		<property name="active" column="active" type="char"></property>
+	</class>
+</hibernate-mapping>
