@@ -14,6 +14,8 @@
 		<property name="show_sql">true</property>
 		<mapping resource="User.hbm.xml"></mapping>
 		<mapping class="com.rms.entity.Dish"></mapping>
+		<mapping class="com.rms.entity.Shipping"></mapping>
+		<mapping class="com.rms.entity.ConversionRate"></mapping>
 	</session-factory>
 
 </hibernate-configuration>
