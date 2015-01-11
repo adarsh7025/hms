@@ -1,0 +1,25 @@
+package com.rms.test;
+
+import static com.rms.util.TestHibernateSQLConnection.getSessionFactory;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.rms.entity.Dish;
+
+public class TestDish {
+	public static void main(String[] args) {
+		
+		SessionFactory factory = getSessionFactory();
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Dish dish = new Dish(4, "Vada Sambhar", 10d, 1, 25.25);
+		session.save(dish);
+		
+		transaction.commit();
+		session.close();
+	}
+
+}
