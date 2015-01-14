@@ -21,6 +21,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "NOTIFICATION")
@@ -47,14 +48,14 @@ public class Notification {
 	private String approvedStatus;
 	
 	@Column(name = "NOTIFICATION_DATE")
-	private String notificationDate;
+	private Timestamp notificationDate;
 
 	public Notification() {
 		super();
 	}
 
 	public Notification(int notificationId, int fromUserId, int toUserId, String notificationType,
-			String notificationText, String approvedStatus, String notificationDate) {
+			String notificationText, String approvedStatus, Timestamp notificationDate) {
 		super();
 		NotificationId = notificationId;
 		this.fromUserId = fromUserId;
@@ -113,11 +114,11 @@ public class Notification {
 		this.approvedStatus = approvedStatus;
 	}
 
-	public String getNotificationDate() {
+	public Timestamp getNotificationDate() {
 		return notificationDate;
 	}
 
-	public void setNotificationDate(String notificationDate) {
+	public void setNotificationDate(Timestamp notificationDate) {
 		this.notificationDate = notificationDate;
 	}
 
@@ -127,6 +128,7 @@ public class Notification {
 				+ toUserId + ", notificationType=" + notificationType + ", notificationText=" + notificationText
 				+ ", approvedStatus=" + approvedStatus + ", notificationDate=" + notificationDate + "]";
 	}
+
 	
 	
 	

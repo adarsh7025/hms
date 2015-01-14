@@ -18,6 +18,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "BILL_STATEMENT")
@@ -41,14 +42,14 @@ public class BillStatement {
 	private double taxAmount;
 	
 	@Column(name = "BILL_DATE")
-	private String billDate;
+	private Timestamp billDate;
 
 	public BillStatement() {
 		super();
 	}
 
 	public BillStatement(int billStatementId, int billId, double billAmount, double totalAmount, double taxAmount,
-			String billDate) {
+			Timestamp billDate) {
 		super();
 		this.billStatementId = billStatementId;
 		this.billId = billId;
@@ -98,11 +99,11 @@ public class BillStatement {
 		this.taxAmount = taxAmount;
 	}
 
-	public String getBillDate() {
+	public Timestamp getBillDate() {
 		return billDate;
 	}
 
-	public void setBillDate(String billDate) {
+	public void setBillDate(Timestamp billDate) {
 		this.billDate = billDate;
 	}
 
@@ -112,6 +113,8 @@ public class BillStatement {
 				+ billAmount + ", totalAmount=" + totalAmount + ", taxAmount=" + taxAmount + ", billDate=" + billDate
 				+ "]";
 	}
+
+
 	
 	
 	

@@ -43,10 +43,10 @@ public class Bill {
 	private int dishId;
 	
 	@Column(name = "QUANTITY")
-	private int quantity;
+	private double quantity;
 	
 	@Column(name = "COST")
-	private int cost;
+	private double cost;
 	
 	@Column(name = "REFERENCE_ID")
 	private int referenceId;
@@ -55,7 +55,7 @@ public class Bill {
 		super();
 	}
 
-	public Bill(int billId, int locationId, int userId, int dishId, int quantity, int cost, int referenceId) {
+	public Bill(int billId, int locationId, int userId, int dishId, double quantity, double cost, int referenceId) {
 		super();
 		this.billId = billId;
 		this.locationId = locationId;
@@ -98,19 +98,19 @@ public class Bill {
 		this.dishId = dishId;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
-	public int getCost() {
+	public double getCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 
@@ -127,6 +127,8 @@ public class Bill {
 		return "Bill [billId=" + billId + ", locationId=" + locationId + ", userId=" + userId + ", dishId=" + dishId
 				+ ", quantity=" + quantity + ", cost=" + cost + ", referenceId=" + referenceId + "]";
 	}
+
+	
 	
 	
 }
