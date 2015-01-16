@@ -10,7 +10,7 @@ import com.rms.entity.ConversionRate;
 
 public class TestConversionRate {
 	public static void main(String[] args) {
-
+		
 		SessionFactory factory = getSessionFactory();
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
