@@ -16,6 +16,8 @@
 		<mapping class="com.rms.entity.Dish"></mapping>
 		<mapping class="com.rms.entity.Shipping"></mapping>
 		<mapping class="com.rms.entity.ConversionRate"></mapping>
+		<mapping class="com.rms.entity.Bill"></mapping>
+		<mapping class="com.rms.entity.BillStatement"></mapping>
 	</session-factory>
 
 </hibernate-configuration>

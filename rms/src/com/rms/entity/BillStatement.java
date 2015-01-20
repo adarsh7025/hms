@@ -9,7 +9,7 @@
 	FOREIGN KEY(BILL_ID) references BILL(BILL_ID)
 );
 
-*/
+ */
 package com.rms.entity;
 
 import javax.persistence.Column;
@@ -17,46 +17,49 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "BILL_STATEMENT")
 public class BillStatement {
-	
+
 	@Id
-	@Column(name="BILL_STATEMENT_ID")
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "BILL_STATEMENT_ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int billStatementId;
-	
-	@Column(name = "BILL_ID")
-	private int billId;
-	
+
 	@Column(name = "BILL_AMOUNT")
 	private double billAmount;
-	
+
 	@Column(name = "TOTAL_AMOUNT")
 	private double totalAmount;
-	
+
 	@Column(name = "TAX_AMOUNT")
 	private double taxAmount;
-	
+
 	@Column(name = "BILL_DATE")
 	private Timestamp billDate;
+
+	@OneToMany(mappedBy = "billStatement")
+	private List<Bill> bills;
 
 	public BillStatement() {
 		super();
 	}
 
-	public BillStatement(int billStatementId, int billId, double billAmount, double totalAmount, double taxAmount,
+	public BillStatement(int billStatementId, double billAmount, double totalAmount, double taxAmount,
 			Timestamp billDate) {
 		super();
 		this.billStatementId = billStatementId;
-		this.billId = billId;
 		this.billAmount = billAmount;
 		this.totalAmount = totalAmount;
 		this.taxAmount = taxAmount;
 		this.billDate = billDate;
+
 	}
 
 	public int getBillStatementId() {
@@ -65,14 +68,6 @@ public class BillStatement {
 
 	public void setBillStatementId(int billStatementId) {
 		this.billStatementId = billStatementId;
-	}
-
-	public int getBillId() {
-		return billId;
-	}
-
-	public void setBillId(int billId) {
-		this.billId = billId;
 	}
 
 	public double getBillAmount() {
@@ -107,17 +102,18 @@ public class BillStatement {
 		this.billDate = billDate;
 	}
 
-	@Override
-	public String toString() {
-		return "BillStatement [billStatementId=" + billStatementId + ", billId=" + billId + ", billAmount="
-				+ billAmount + ", totalAmount=" + totalAmount + ", taxAmount=" + taxAmount + ", billDate=" + billDate
-				+ "]";
+	public List<Bill> getBills() {
+		return bills;
 	}
 
+	public void setBills(List<Bill> bills) {
+		this.bills = bills;
+	}
 
-	
-	
-	
-	
-	
+	@Override
+	public String toString() {
+		return "BillStatement [billStatementId=" + billStatementId + ", billAmount=" + billAmount + ", totalAmount="
+				+ totalAmount + ", taxAmount=" + taxAmount + ", billDate=" + billDate + ", bills=" + bills + "]";
+	}
+
 }

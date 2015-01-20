@@ -23,5 +23,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.9.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xml-apis-1.0.b2.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-jdk14-1.6.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
