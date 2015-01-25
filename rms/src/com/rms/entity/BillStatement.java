@@ -14,6 +14,7 @@ package com.rms.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -44,7 +45,10 @@ public class BillStatement {
 	@Column(name = "BILL_DATE")
 	private Timestamp billDate;
 
-	@OneToMany(mappedBy = "billStatement")
+	@Column(name = "LOCATION_ID")
+	private int locationId;
+
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "billStatement")
 	private List<Bill> bills;
 
 	public BillStatement() {
@@ -52,14 +56,15 @@ public class BillStatement {
 	}
 
 	public BillStatement(int billStatementId, double billAmount, double totalAmount, double taxAmount,
-			Timestamp billDate) {
+			Timestamp billDate, int locationId, List<Bill> bills) {
 		super();
 		this.billStatementId = billStatementId;
 		this.billAmount = billAmount;
 		this.totalAmount = totalAmount;
 		this.taxAmount = taxAmount;
 		this.billDate = billDate;
-
+		this.locationId = locationId;
+		this.bills = bills;
 	}
 
 	public int getBillStatementId() {
@@ -102,6 +107,14 @@ public class BillStatement {
 		this.billDate = billDate;
 	}
 
+	public int getLocationId() {
+		return locationId;
+	}
+
+	public void setLocationId(int locationId) {
+		this.locationId = locationId;
+	}
+
 	public List<Bill> getBills() {
 		return bills;
 	}
@@ -113,7 +126,8 @@ public class BillStatement {
 	@Override
 	public String toString() {
 		return "BillStatement [billStatementId=" + billStatementId + ", billAmount=" + billAmount + ", totalAmount="
-				+ totalAmount + ", taxAmount=" + taxAmount + ", billDate=" + billDate + ", bills=" + bills + "]";
+				+ totalAmount + ", taxAmount=" + taxAmount + ", billDate=" + billDate + ", locationId=" + locationId
+				+ "]";
 	}
 
 }

@@ -1,23 +1,43 @@
 package com.rms.entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "USER")
 public class User {
 
+	@Id
+	@Column(name = "ID")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	@Column(name = "USER_ID")
 	private String userId;
 
+	@Column(name = "PASSWORD")
 	private String password;
 
+	@Column(name = "NAME")
 	private String name;
 
+	@Column(name = "TYPE")
 	private String type;
 
+	@Column(name = "LOCATION_ID")
 	private int locationId;
 
+	@Column(name = "PARENT")
 	private int parent;
 
+	@Column(name = "PHONE_NO")
 	private long phoneNo;
 
+	@Column(name = "ACTIVE")
 	private char active;
 
 	public User() {
