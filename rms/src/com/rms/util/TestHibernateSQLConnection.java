@@ -9,16 +9,12 @@ public class TestHibernateSQLConnection {
 	static {
 		myConfiguration = new org.hibernate.cfg.Configuration().configure();
 		sessionFactory = myConfiguration.buildSessionFactory();
-		System.out.println("My configuration "+ myConfiguration);
+		System.out.println("My configuration " + myConfiguration);
 
 	}
 
 	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
-	}
-	
-	public static void main(String[] args) {
-		System.out.println(getSessionFactory());
 	}
 
 }
