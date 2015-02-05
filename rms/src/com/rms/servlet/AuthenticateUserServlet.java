@@ -72,12 +72,11 @@ public class AuthenticateUserServlet extends HttpServlet {
 		userForm.setPassword(password);
 		UserService userService = new UserService();
 		UserForm userForm2 = userService.authenticateUser(userForm);
-		System.out.println(userForm2);
 
 		if (null == userForm2) {
 			logger.info("Authentication failure");
 		} else {
-		
+
 			logger.info("Login successful!");
 			String userType = userForm2.getType();
 			session.setAttribute("userId", userForm2.getUserId());
@@ -86,21 +85,20 @@ public class AuthenticateUserServlet extends HttpServlet {
 			switch (userType) {
 
 			case "kioskoperator":
-				dispatcher = request.getRequestDispatcher("jsp/kioskOperator.jsp");
+				response.sendRedirect("jsp/kioskOperator.jsp");
 				break;
 			case "supervisor":
-				dispatcher = request.getRequestDispatcher("jsp/supervisor.jsp");
+				response.sendRedirect("jsp/supervisor.jsp");
 				break;
 			case "manager":
-				dispatcher = request.getRequestDispatcher("jsp/manager.jsp");
+				response.sendRedirect("jsp/manager.jsp");
 				break;
 			case "admin":
-				dispatcher = request.getRequestDispatcher("jsp/admin.jsp");
+				response.sendRedirect("jsp/admin.jsp");
 				break;
 			default:
 				logger.info("Incorrect usertype for user");
 			}
-			dispatcher.include(request, response);
 		}
 	}
 }

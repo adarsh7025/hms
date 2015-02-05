@@ -2,8 +2,22 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-
+<head>
+<script src="../js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script> 
+	$( document ).ready(function() {
+       $("#header").load("header.jsp"); 
+    });
+    
+</script>
+</head>
 <body>
-<h2>User logged in!</h2>
+<div>
+<div id="logo"></div>
+<div id="header"></div>
+<div id="shape">
+</div>
+</div>
 </body>
 </html>

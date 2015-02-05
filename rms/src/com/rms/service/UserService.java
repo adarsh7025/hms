@@ -29,7 +29,8 @@ public class UserService {
 
 		IUserDAO userDAO = new UserDAO();
 		User user3 = userDAO.authenticateUser(user2);
-		UserForm userForm = new UserForm(0, user3.getUserId(), user3.getPassword(), null, null, 0, 0, 0);
+		UserForm userForm = new UserForm(user3.getId(), user3.getUserId(), user3.getPassword(), user3.getName(),
+				user3.getType(), user3.getLocationId(), user3.getParent(), user3.getPhoneNo());
 		return userForm;
 
 	}

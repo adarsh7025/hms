@@ -5,16 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
-<script type="text/css">
-#header {
+<style type="text/css">
 
-}
-</script>
+</style>
 </head>
 <body>
-<div id="header">
+Hi this is the header
 
-
-</div>
 </body>
 </html>
