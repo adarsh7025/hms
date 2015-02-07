@@ -6,13 +6,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Restaurant System</title>
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 <body>
 	<div id="background"></div>
 	<bloc> </bloc>
 
-	<form name="login" id="loginForm" action="../AuthenticateUser" type="post">
+	<form name="login" id="loginForm" action="../rms/AuthenticateUser" method="post">
 		<div id="form">
 			<div id="row">
 				<div id="cell">

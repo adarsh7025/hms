@@ -12,7 +12,7 @@
     
 </script>
 </head>
-<body>
+<body bgcolor="#E6E6FA">
 <div>
 <div id="logo"></div>
 <div id="header"></div>

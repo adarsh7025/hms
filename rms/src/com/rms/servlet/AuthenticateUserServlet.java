@@ -2,7 +2,6 @@ package com.rms.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -64,7 +63,6 @@ public class AuthenticateUserServlet extends HttpServlet {
 		logger.info("Authenitcating user");
 
 		HttpSession session = request.getSession();
-		RequestDispatcher dispatcher = null;
 		String userName = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserForm userForm = new UserForm();
@@ -77,10 +75,10 @@ public class AuthenticateUserServlet extends HttpServlet {
 			logger.info("Authentication failure");
 		} else {
 
-			logger.info("Login successful!");
 			String userType = userForm2.getType();
 			session.setAttribute("userId", userForm2.getUserId());
 			session.setAttribute("userType", userType);
+			logger.info("Login successful for user "+ userForm2.getUserId() + " type "+ userType);
 
 			switch (userType) {
 
