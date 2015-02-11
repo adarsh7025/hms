@@ -2,6 +2,7 @@ package com.rms.servlet;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,6 +71,7 @@ public class AuthenticateUserServlet extends HttpServlet {
 		userForm.setPassword(password);
 		UserService userService = new UserService();
 		UserForm userForm2 = userService.authenticateUser(userForm);
+		RequestDispatcher dispatcher = null;
 
 		if (null == userForm2) {
 			logger.info("Authentication failure");
@@ -83,7 +85,9 @@ public class AuthenticateUserServlet extends HttpServlet {
 			switch (userType) {
 
 			case "kioskoperator":
-				response.sendRedirect("jsp/kioskOperator.jsp");
+				dispatcher = request.getRequestDispatcher("KioskOperatorControl");
+				dispatcher.forward(request, response);
+				//response.sendRedirect("jsp/kioskOperator.jsp");
 				break;
 			case "supervisor":
 				response.sendRedirect("jsp/supervisor.jsp");

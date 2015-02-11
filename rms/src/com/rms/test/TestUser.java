@@ -18,7 +18,7 @@ public class TestUser {
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
 
-		User user = new User(100, "adarsh@7031901", "adarsh123", "adarsh", "operator", 1, 101, 9029143439l, 'Y');
+		User user = new User(100, "adarsh@25", "adarsh123", "adarsh", "operator", 1, 101, 9029143439l, 'Y');
 
 		// User user2 = (User) session.load(User.class, 1);
 		// System.out.println("User>>>"+user2);
