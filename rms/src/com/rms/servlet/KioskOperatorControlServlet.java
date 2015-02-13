@@ -64,13 +64,10 @@ public class KioskOperatorControlServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/kioskOperator.jsp");
 		DishService dishService = new DishService();
 		List<DishForm> dishForms = dishService.getDish();
-		for (DishForm dishForm : dishForms) {
-			System.out.println(dishForm);
-		}
+		
 		request.setAttribute("dishes", dishForms);
 		logger.info("Sending dish information to kiosk operator");
 		dispatcher.forward(request, response);
-		//response.sendRedirect("jsp/kioskOperator.jsp");
 
 	}
 
