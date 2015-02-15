@@ -55,35 +55,10 @@ public class AdminServlet extends HttpServlet {
 	protected void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-//		logger.info("Admin get user");
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin.jsp");
-//		AdminService adminService= new AdminService();
-//		adminService.getUser();
-//		
-//		request.setAttribute("dishes", adminService);
-//		logger.info("Sending USERinformation to admin");
-//		dispatcher.forward(request, response);
+		logger.info("AdminServlet 1");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin.jsp");
 		
-		
-		
-		String userId = (request.getParameter("username")).trim();
-		String password = (request.getParameter("password")).trim();
-		String name=(request.getParameter("name").trim());
-		String type=(request.getParameter("type")).trim();
-		long phonenumber=(Long.valueOf(request.getParameter("phonenumber").trim())).longValue();
-		int locationId=Integer.parseInt(request.getParameter("locationid").trim());
-		
-		UserForm userform=new UserForm();
-		userform.setUserId(userId);
-		userform.setPassword(password);
-		userform.setName(name);
-		userform.setType(type);
-		userform.setPhoneNo(phonenumber);
-		userform.setParent(101);
-		userform.setLocationId(locationId);
-
-		AdminService adminservice=new AdminService();
-		adminservice.addUser(userform);
+		dispatcher.forward(request, response);
 		
 		
 		

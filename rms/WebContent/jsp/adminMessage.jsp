@@ -114,89 +114,9 @@ h3 {
 <!-- Start of admin.jsp code -->
 <div id="form">
               <form name="login" id="adduserform" action="../rms/Admin2" method="post">
-				
-		<div id="row">
-					
-					<div id="cell">
-						<h3>User ID</h3>
-					</div>
-				
-					<div id="cell">
-					<input type="text" name="username" />
-					</div>
-					<br>
-					
-					
-					<div id="cell">
-						<h3>Password</h3>
-					</div>
-					
-				   <div id="cell">
-				   		<input type="password" name="password" />
-				   </div>
-			</div>
-			<br>
-			
-			<div id="row">
-						<div id="cell" >
-								<h3>Name&nbsp;&nbsp;</h3>
-						</div>
-					
-						<div id="cell">
-								<input type="text" name="name" style="width: 350px;"  />
-						</div>
-			</div>
-			<br>
-			
-			<div id="row">
-				<div id="cell">
-					<h3>User Type&nbsp;&nbsp;</h3>
-				</div>
-				<div id="cell">
-					<select name="type">
-  							<option value="admin">Admin</option>
-  							<option value="manager">Manager</option>
- 							 <option value="supervisor">Supervisor</option>
-  							<option value="kioskoperator">Kiosk Operator</option>
-					</select>
-				</div>
-		
-			
-			
-		
-				<div id="cell">
-					<h3>&nbsp;&nbsp;&nbsp;Location&nbsp;&nbsp;</h3>
-				</div>
-				<div id="cell">
-					 <select name="location">
-  							<option value="1">Mumbai</option>
-  							<option value="2">Vadodara</option>
- 							 
-					</select>
-				</div>
-			</div>
-			<br>
-			
-			<div id="row">
-						<div id="cell" >
-								<h3>Phone Number&nbsp;&nbsp;</h3>
-						</div>
-					
-						<div id="cell">
-								<input type="text" name="phonenumber" style="width: 350px;"  />
-						</div>
-			</div>
-			<br>
-			
-			
-			<div>
-				<input type="submit" class="btn" value="Add User" />
-			</div>
-			
-				
-		
-				</form>
-				</div>
+			<h3>User Added Successfully!!!</h3>	
+	</form>
+	</div>
 <!-- end of admin.jsp code -->
 
 			

@@ -96,7 +96,9 @@ public class AuthenticateUserServlet extends HttpServlet {
 				response.sendRedirect("jsp/manager.jsp");
 				break;
 			case "admin":
-				response.sendRedirect("jsp/admin.jsp");
+				dispatcher = request.getRequestDispatcher("Admin");
+				dispatcher.forward(request, response);
+				
 				break;
 			default:
 				logger.info("Incorrect usertype for user");

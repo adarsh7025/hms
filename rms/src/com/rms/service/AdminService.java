@@ -20,7 +20,7 @@ public class AdminService {
 	public boolean addUser(UserForm user2) {
 		
 		logger.info("Add User");
-		
+		System.out.println(user2.getId());
 		User user = new User();
 		user.setId(user2.getId());
 		user.setPassword(user2.getPassword());
@@ -28,7 +28,9 @@ public class AdminService {
 		user.setName(user2.getName());
 		user.setParent(user2.getParent());
 		user.setPhoneNo(user2.getPhoneNo());
-		
+		user.setActive('Y');
+		user.setLocationId(user2.getLocationId());
+		user.setType(user2.getType());
 		IUserDAO userDAO = new UserDAO();
 		boolean user3 = userDAO.addUser(user);
 		
