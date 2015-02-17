@@ -8,30 +8,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.rms.dao.BillingDAO;
+import com.rms.dao.DishDAO;
 import com.rms.dao.UserDAO;
-import com.rms.formentity.UserForm;
-import com.rms.service.AdminService;
 
 /**
- * Servlet implementation class AdminServlet
- * @author kv
+ * Servlet implementation class AdminDishAddServlet
  */
-@WebServlet("/Admin")
-public class AdminServlet extends HttpServlet {
+@WebServlet(name = "AdminDishAdd", urlPatterns = { "/AdminDishAdd" })
+public class AdminDishAddServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	
-	private final Logger logger = LoggerFactory.getLogger(BillingDAO.class);
+	private final Logger logger = LoggerFactory.getLogger(DishDAO.class);   
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AdminServlet() {
+    public AdminDishAddServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,29 +34,28 @@ public class AdminServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest( request,  response);
+		// TODO Auto-generated method stub
+		doRequest(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest( request,  response);
+		// TODO Auto-generated method stub
+		doRequest(request,response);
 	}
 	
-	/**
-	 * @see HttpServlet#doRequest(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		logger.info("AdminServlet 1");
-		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/admin.jsp");
+		logger.info("Admin Dish Add Servlet ");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/adminDishAdd.jsp");
 		dispatcher.forward(request, response);
 		
-		
-		
-		
-	}
-
+	}  
+	
+	
+	
 }

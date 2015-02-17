@@ -37,10 +37,10 @@ li {
 <body>
 	<div id="menu">
 		<ul>
-			<li><a href="#" class="tab">Link one</a></li>
-			<li><a href="#" class="tab">Link two</a></li>
-			<li><a href="#" class="tab">Link three</a></li>
-			<li><a href="#" class="tab">Link four</a></li>
+			<li><a href="#" class="tab">Add User</a></li>
+			<li><a href="#" class="tab">Add Dish</a></li>
+			<li><a href="#" class="tab">Admin Dashboard</a></li>
+			<li><a href="#" class="tab">4</a></li>
 		</ul>
 	</div>
 
