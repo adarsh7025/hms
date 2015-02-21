@@ -14,7 +14,7 @@ ul {
 	list-style-type: none;
 }
 
-a {
+a.tab {
 	float: left;
 	width: 6em;
 	height: 70px;
@@ -25,7 +25,7 @@ a {
 	border-right: 1px solid white;
 }
 
-a:hover {
+a.tab:hover {
 	background-color: #FF6403;
 }
 
