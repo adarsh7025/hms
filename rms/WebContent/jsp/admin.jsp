@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="../js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<script src="../rms/js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../rms/css/style.css" />
 <style>
 .dishbtn {
 	background: #3498db;
@@ -111,10 +111,13 @@ h3 {
 				</c:forEach>
 			</div>
 			<!-- template ends -->
+<%
+ String hiddenFieldValue="addUser";
+%>
 <!-- Start of admin.jsp code -->
 <div id="form">
               <form name="login" id="adduserform" action="../rms/Admin2" method="post">
-				
+				<input type="hidden" name="hdField" value="<%=hiddenFieldValue%>" />
 		<div id="row">
 					
 					<div id="cell">
