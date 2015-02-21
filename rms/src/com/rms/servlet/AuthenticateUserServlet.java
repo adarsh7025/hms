@@ -78,22 +78,25 @@ public class AuthenticateUserServlet extends HttpServlet {
 		} else {
 
 			String userType = userForm2.getType();
-			session.setAttribute("userId", userForm2.getUserId());
+			session.setAttribute("userId", userForm2.getId());
+			session.setAttribute("locationId", userForm2.getLocationId());
 			session.setAttribute("userType", userType);
-			logger.info("Login successful for user "+ userForm2.getUserId() + " type "+ userType);
+			logger.info("Login successful for user " + userForm2.getUserId() + " type " + userType);
 
 			switch (userType) {
 
 			case "kioskoperator":
+				request.setAttribute("action", "billing");
 				dispatcher = request.getRequestDispatcher("KioskOperatorControl");
 				dispatcher.forward(request, response);
-				//response.sendRedirect("jsp/kioskOperator.jsp");
 				break;
 			case "supervisor":
 				response.sendRedirect("jsp/supervisor.jsp");
 				break;
 			case "manager":
-				response.sendRedirect("jsp/manager.jsp");
+				request.setAttribute("action", "inventory");
+				dispatcher = request.getRequestDispatcher("Manager");
+				dispatcher.forward(request, response);
 				break;
 			case "admin":
 				dispatcher = request.getRequestDispatcher("Admin");
