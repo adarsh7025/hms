@@ -12,7 +12,7 @@ public class TestInventory {
 	public static void main(String[] args) {
 
 		Inventory inventory = new Inventory(0, "Wheat", "Food", 1, 13.2d, "kg");
-
+		//System.out.println(iInventoryDAO.getInventoryItem("Water"));
 		IInventoryDAO iInventoryDAO = new InventoryDAO();
 		iInventoryDAO.addInventory(inventory);
 		//System.out.println(iInventoryDAO.getInventoryItem("Water"));
