@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="js/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="../js/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
 <style>
 .dishbtn {
 	background: #3498db;

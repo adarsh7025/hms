@@ -26,7 +26,7 @@ public class UserDAO implements IUserDAO {
 	@Override
 	public boolean addUser(User user) {
 		logger.info("Adding a user to the database");
-          System.out.println(user.getId()+" "+user.getActive()+" "+user.getLocationId()+user.getName()+user.getParent());
+
 		SessionFactory factory = getSessionFactory();
 		Session session = factory.openSession();
 		Transaction transaction = null;
