@@ -1,6 +1,7 @@
 package com.rms.dao;
 
-import java.util.Iterator;
+import static com.rms.util.TestHibernateSQLConnection.getSessionFactory;
+
 import java.util.List;
 
 import org.hibernate.HibernateException;
@@ -14,8 +15,6 @@ import org.slf4j.LoggerFactory;
 import com.rms.contract.IBillingDAO;
 import com.rms.entity.Bill;
 import com.rms.entity.BillStatement;
-
-import static com.rms.util.TestHibernateSQLConnection.getSessionFactory;
 
 /**
  * 
@@ -40,6 +39,7 @@ public class BillingDAO implements IBillingDAO {
 			transaction = session.beginTransaction();
 			session.save(billStatement);
 			for (Bill bill : bills) {
+				bill.setBillStatement(billStatement);
 				session.saveOrUpdate(bill);
 			}
 
@@ -131,6 +131,5 @@ public class BillingDAO implements IBillingDAO {
 
 		return billStatement;
 	}
-	
-	
+
 }
