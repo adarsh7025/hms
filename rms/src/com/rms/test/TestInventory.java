@@ -14,7 +14,7 @@ public class TestInventory {
 		Inventory inventory = new Inventory(0, "Wheat", "Food", 1, 13.2d, "kg");
 
 		IInventoryDAO iInventoryDAO = new InventoryDAO();
-		System.out.println(iInventoryDAO.getInventoryItemFromId(1));
+		iInventoryDAO.addInventory(inventory);
 		//System.out.println(iInventoryDAO.getInventoryItem("Water"));
 		
 		// iInventoryDAO.addInventory(inventory);
