@@ -32,7 +32,7 @@ bloc {
 	width: 600px;
 }
 
-h3 {
+h3.login-label {
 	color: #FFFFFF;
 }
 
@@ -75,7 +75,7 @@ h3 {
 }
 
 #shape{
-	background-color: #F7F2E0;
+	background-color: #FAFAFA;
 	width:1100px;
     height:670px;
     top:0px;
@@ -84,7 +84,7 @@ h3 {
     
 }
 #logo{
-	background-color: #F7F2E0;
+	background-color: #FAFAFA;
 	width:200px;
     height:80px;
     top: 0px;
@@ -101,4 +101,11 @@ h3 {
 	position:absolute;
 	
 }
-
+#inventory_item {
+	width: 1000px;
+	height: 200px;
+	border: solid 1px #D8D8D8;
+	top: 40px;
+	left: 50px;
+	position: absolute;
+}
