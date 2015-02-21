@@ -16,7 +16,7 @@
 		<div id="form">
 			<div id="row">
 				<div id="cell">
-					<h3>Username&nbsp;&nbsp;</h3>
+					<h3 class="login-label">Username&nbsp;&nbsp;</h3>
 				</div>
 				<div id="cell">
 					<input type="text" name="username" />
@@ -25,7 +25,7 @@
 			<br>
 			<div id="row">
 				<div id="cell">
-					<h3>Password&nbsp;&nbsp;</h3>
+					<h3 class="login-label">Password&nbsp;&nbsp;</h3>
 				</div>
 				<div id="cell">
 					<input type="password" name="password" />
