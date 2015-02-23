@@ -49,5 +49,33 @@ public class LocationDAO implements ILocationDAO {
 		}
 		return location.getTax();
 	}
+	
+	public double getLocationCount()
+	{
+		logger.info("Get Count of Locations in location table");
+		SessionFactory factory = getSessionFactory();
+		Session session = factory.openSession();
+		Transaction transaction = null;
+		
+		double count=0.0;
+		try
+		{
+			transaction = session.beginTransaction(); 
+			 count = (Double) session.createSQLQuery("select count(*) from Location").uniqueResult();
+		}
+		catch (HibernateException hibernateException) {
+			logger.info("Error while retrieving tax value from database");
+			if (null != transaction) {
+				transaction.rollback();
+				return 0;
+			}
+		}
+		finally {
+			transaction.commit();
+			session.close();
+		}
+		return count;
+		
+	}
 
 }

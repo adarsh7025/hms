@@ -1,153 +1,136 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Restaurant System</title>
 <script src="js/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+<link
+	href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
+<script>
+	$(document).ready(
+			function() {
+				$(function() {
+					$("#header").load("jsp/header.jsp");
+
+				});
+				$("#clear").click(function() {
+					
+					$("#DishName").val("");
+					$("#DishName").prop("readonly", false);
+					$("#DishCategory").val("");
+					$("#DishCategory").prop("readonly", false);
+					$("#LocationId").val("");
+					$("#LocationId").prop("readonly", false);
+					$("#DishQuantity").val("");
+					$("#DishQuantity").prop("readonly", false);
+					$("#DishUnit").val("");
+					$("#DishUnit").prop("readonly", false);
+					$("#DishPrice").val("");
+					$("#DishPrice").prop("readonly", false);
+					
+				});
+
+				
+
+			});
+</script>
 <style>
-.dishbtn {
-	background: #3498db;
-	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
-	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
-	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
-	background-image: -o-linear-gradient(top, #3498db, #2980b9);
-	background-image: linear-gradient(to bottom, #3498db, #2980b9);
-	-webkit-border-radius: 6;
-	-moz-border-radius: 6;
-	border-radius: 6px;
-	font-family: Georgia;
+input[type="text"], select {
+	display: block;
+	margin: 0;
+	width: 100%;
+	font-family: sans-serif;
+	font-size: 18px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+	padding: 10px;
+	border: solid 1px #dcdcdc;
+	transition: box-shadow 0.3s, border 0.3s;
+}
+
+input[type="text"]:focus, select:focus {
+	outline: none;
+	border: solid 1px #707070;
+	box-shadow: 0 0 5px 1px #969696;
+}
+
+h3.inventory-label {
+	font: 17px Georgia, serif;
+}
+
+.btn {
+	-webkit-border-radius: 3;
+	-moz-border-radius: 3;
+	border-radius: 3px;
+	font-family: Arial;
 	color: #ffffff;
-	font-size: 15px;
-	width: 130px;
-	height: 50px;
+	font-size: 20px;
+	background: #00aeff;
 	padding: 10px 20px 10px 20px;
 	text-decoration: none;
 }
 
-.dishbtn:hover {
-	background: #45b3f7;
-	background-image: -webkit-linear-gradient(top, #45b3f7, #5783fa);
-	background-image: -moz-linear-gradient(top, #45b3f7, #5783fa);
-	background-image: -ms-linear-gradient(top, #45b3f7, #5783fa);
-	background-image: -o-linear-gradient(top, #45b3f7, #5783fa);
-	background-image: linear-gradient(to bottom, #45b3f7, #5783fa);
+.btn:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
 	text-decoration: none;
 }
 
-#buttons {
-	height: 600px;
-	width: 400px;
-	top: 40px;
-	left: 40px;
-	position: relative;
-}
-
-#bill {
-	height: 450px;
-	width: 400px;
-	top: 40px;
-	left: 540px;
-	position: absolute;
-}
-
-h3 {
-	color: navy;
-	position: center;
+.ui-menu {
+	width: 200px;
 }
 </style>
-<script>
-	$(document).ready(function() {
-		$("#header").load("jsp/header.jsp");
-	});
 
-	function orderDish(id,price,name) {
-		
-		if($("#order_"+id).get(0)) {
-			var quantity = $("#quantityValue_"+id).text();
-			quantity++;
-			price = price * quantity;
-			var replace = true;
-		}
-		else
-			var quantity = 1;
-		
-		$.ajax({
-			type: "POST",
-			url: "jsp/order.jsp",
-			data: {
-				"dishId"					: 	id,
-				"dishPrice"					:	price,
-				"dishName"					:	name,
-				"dishQuantity"				:	quantity
-				
-			},
-			success: function(msg) {
-				if(replace) 
-					$("#order_"+id).replaceWith(msg);
-				else
-					$("#bill").append(msg);
-			}
-		});
-
-	}
-</script>
+</head>
+<body>
 </head>
 <body bgcolor="#E6E6FA">
 	<div>
 		<div id="logo"></div>
 		<div id="header"></div>
 		<div id="shape">
-			<div id="buttons">
-				<c:forEach items="${dishes}" var="dish" varStatus="dishCounter">
-					<div
-						style="top:<c:out value='${20*dishCounter.count}' />px;left:20px;position:relative;">
-						<input type="button" class="dishbtn"
-							value="<c:out value='${dish.dishName}' />"
-							id="button_<c:out value='${dishCounter.count}' />"
-							onclick="orderDish(<c:out value='${dish.dishId}' />,<c:out value='${dish.price}' />,'<c:out value='${dish.dishName}' />');" />
-					</div>
-				</c:forEach>
-			</div>
-			<!-- template ends -->
-<!-- Start of admin.jsp code -->
-<div id="form">
-              <form name="login" id="addDishForm" action="../rms/Admin2" method="post">
+			<div id="DishAdd" name="DishAdd">
 				
-		<div id="row">
-					
-					<div id="cell">
-						<h3>User ID</h3>
-					</div>
-				
-					<div id="cell">
-					<input type="text" name="username" />
-					</div>
-					<br>
-					
-					
-					<div id="cell">
-						<h3>Password</h3>
-					</div>
-					
-			</div>
-			
-						<br>
-			
-			
-			<div>
-				<input type="submit" class="btn" value="Add User" />
-			</div>
-			
-				
-		
-				</form>
-				</div>
-<!-- end of admin.jsp code -->
+				<form name="dishaddform" action="admin" method="post">
+					<h3 class="HDishName"
+						style="top: 17px; left: 35px; position: absolute">Dish Name:</h3>
+					<input type="text" id="DishName" name="DishName"
+						style="top: 60px; left: 30px; width: 100px; height: 20px; position: absolute"
+						value="" required />
 
-			
+					<h3 class="HDishPrice"
+						style="top: 17px; left: 185px; position: absolute">Dish Price:</h3>
+					<input type="text" id="DishPrice" name="DishPrice"
+						style="top: 60px; left: 180px; width: 100px; height: 20px; position: absolute"
+						value="" required />
+						
+					
+
+					 <input type="hidden" id="action"name="action" value="addDishSubmit" /> 
+					<input type="submit"
+					style="top: 130px; left: 30px; position: absolute;" class="btn"
+					value="Add Dish " /> &nbsp;&nbsp; <input type="button" id="clear"
+					style="top: 130px; left: 180px; position: absolute;" class="btn"
+					value="Clear" />
+				</form>
+				
+			</div>
 		</div>
 	</div>
+
 </body>
 </html>

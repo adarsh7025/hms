@@ -111,13 +111,11 @@ h3 {
 				</c:forEach>
 			</div>
 			<!-- template ends -->
-<%
- String hiddenFieldValue="addUser";
-%>
+
 <!-- Start of admin.jsp code -->
 <div id="form">
-              <form name="login" id="adduserform" action="../rms/Admin2" method="post">
-				<input type="hidden" name="hdField" value="<%=hiddenFieldValue%>" />
+              <form name="login" id="adduserform" action="../rms/Admin" method="post">
+				<input type="hidden" name="action" value="addUser" />
 		<div id="row">
 					
 					<div id="cell">

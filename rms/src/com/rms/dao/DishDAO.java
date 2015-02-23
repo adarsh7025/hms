@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 
 import com.rms.contract.IDishDAO;
 import com.rms.entity.Dish;
+import com.rms.entity.User;
 
 
 
@@ -47,5 +48,29 @@ import com.rms.entity.Dish;
 		return dish;
 	}
 	 
+	 public boolean addDish(Dish dish,double count) {
+			logger.info("Adding a Dish to the database");
+
+			SessionFactory factory = getSessionFactory();
+			Session session = factory.openSession();
+			Transaction transaction = null;
+             System.out.println(count);
+			try {
+				
+				transaction = session.beginTransaction();
+				
+				session.save(dish);
+			} catch (HibernateException hibernateException) {
+				logger.info("Error while adding dish to database");
+				if (null != transaction) {
+					transaction.rollback();
+					return false;
+				}
+			} finally {
+				transaction.commit();
+				session.close();
+			}
+			return true;
+		} 
 	 
 }

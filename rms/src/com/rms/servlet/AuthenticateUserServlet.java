@@ -99,6 +99,7 @@ public class AuthenticateUserServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 				break;
 			case "admin":
+				request.setAttribute("action", "default");
 				dispatcher = request.getRequestDispatcher("Admin");
 				dispatcher.forward(request, response);
 				
